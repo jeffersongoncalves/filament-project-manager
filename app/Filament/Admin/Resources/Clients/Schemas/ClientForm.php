@@ -4,6 +4,8 @@ namespace App\Filament\Admin\Resources\Clients\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Ysfkaya\FilamentPhoneInput\Forms\PhoneInput;
+use Ysfkaya\FilamentPhoneInput\PhoneInputNumberType;
 
 class ClientForm
 {
@@ -16,8 +18,9 @@ class ClientForm
                 TextInput::make('email')
                     ->email()
                     ->required(),
-                TextInput::make('phone')
-                    ->tel()
+                PhoneInput::make('phone')
+                    ->validateFor()
+                    ->displayNumberFormat(PhoneInputNumberType::INTERNATIONAL)
                     ->required(),
             ]);
     }
