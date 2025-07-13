@@ -19,7 +19,6 @@ class ClientsRelationManager extends RelationManager
 
     protected static ?string $recordTitleAttribute = 'name';
 
-
     public function table(Table $table): Table
     {
         return ClientsTable::configure($table)
