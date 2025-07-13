@@ -6,7 +6,7 @@ use App\Filament\Admin\Resources\Users\Pages\CreateUser;
 use App\Filament\Admin\Resources\Users\Pages\EditUser;
 use App\Filament\Admin\Resources\Users\Pages\ListUsers;
 use App\Filament\Admin\Resources\Users\Pages\ViewUser;
-use App\Filament\Admin\Resources\Users\RelationManagers\UsersRelationManager;
+use App\Filament\Admin\Resources\Users\RelationManagers\ClientsRelationManager;
 use App\Filament\Admin\Resources\Users\Schemas\UserForm;
 use App\Filament\Admin\Resources\Users\Schemas\UserInfolist;
 use App\Filament\Admin\Resources\Users\Tables\UsersTable;
@@ -83,7 +83,7 @@ class UserResource extends Resource
     public static function getRelations(): array
     {
         return [
-            UsersRelationManager::class,
+            ClientsRelationManager::class,
         ];
     }
 
