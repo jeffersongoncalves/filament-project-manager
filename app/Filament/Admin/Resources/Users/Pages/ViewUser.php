@@ -18,4 +18,9 @@ class ViewUser extends ViewRecord
             DeleteAction::make(),
         ];
     }
+
+    public function hasCombinedRelationManagerTabsWithContent(): bool
+    {
+        return true;
+    }
 }
