@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Filament\Admin\Resources\Users;
+namespace App\Filament\Admin\Resources\Clients;
 
-use App\Filament\Admin\Resources\Users\Pages\CreateUser;
-use App\Filament\Admin\Resources\Users\Pages\EditUser;
-use App\Filament\Admin\Resources\Users\Pages\ListUsers;
-use App\Filament\Admin\Resources\Users\Pages\ViewUser;
-use App\Filament\Admin\Resources\Users\Schemas\UserForm;
-use App\Filament\Admin\Resources\Users\Schemas\UserInfolist;
-use App\Filament\Admin\Resources\Users\Tables\UsersTable;
-use App\Models\User;
+use App\Filament\Admin\Resources\Clients\Pages\CreateClient;
+use App\Filament\Admin\Resources\Clients\Pages\EditClient;
+use App\Filament\Admin\Resources\Clients\Pages\ListClients;
+use App\Filament\Admin\Resources\Clients\Pages\ViewClient;
+use App\Filament\Admin\Resources\Clients\Schemas\ClientForm;
+use App\Filament\Admin\Resources\Clients\Schemas\ClientInfolist;
+use App\Filament\Admin\Resources\Clients\Tables\ClientsTable;
+use App\Models\Client;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -17,13 +17,11 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Cache;
 
-use function __;
-
-class UserResource extends Resource
+class ClientResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static ?string $model = Client::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::User;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     protected static bool $isGloballySearchable = true;
 
@@ -41,42 +39,42 @@ class UserResource extends Resource
 
     public static function getModelLabel(): string
     {
-        return __('User');
+        return __('Client');
     }
 
     public static function getPluralModelLabel(): string
     {
-        return __('Users');
+        return __('Clients');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Users');
+        return __('Clients');
     }
 
     public static function getNavigationGroup(): ?string
     {
-        return __('User');
+        return __('Client');
     }
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) Cache::rememberForever('users_count', fn () => User::query()->count());
+        return (string) Cache::rememberForever('clients_count', fn () => Client::query()->count());
     }
 
     public static function form(Schema $schema): Schema
     {
-        return UserForm::configure($schema);
+        return ClientForm::configure($schema);
     }
 
     public static function infolist(Schema $schema): Schema
     {
-        return UserInfolist::configure($schema);
+        return ClientInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return UsersTable::configure($table);
+        return ClientsTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -89,10 +87,10 @@ class UserResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListUsers::route('/'),
-            'create' => CreateUser::route('/create'),
-            'view' => ViewUser::route('/{record}'),
-            'edit' => EditUser::route('/{record}/edit'),
+            'index' => ListClients::route('/'),
+            'create' => CreateClient::route('/create'),
+            'view' => ViewClient::route('/{record}'),
+            'edit' => EditClient::route('/{record}/edit'),
         ];
     }
 }
