@@ -60,7 +60,7 @@ class ClientResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string)Cache::rememberForever('clients_count', fn() => Client::query()->count());
+        return (string) Cache::rememberForever('clients_count', fn () => Client::query()->count());
     }
 
     public static function form(Schema $schema): Schema

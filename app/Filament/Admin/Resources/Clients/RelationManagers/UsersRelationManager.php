@@ -2,8 +2,8 @@
 
 namespace App\Filament\Admin\Resources\Clients\RelationManagers;
 
-use App\Filament\Admin\Resources\Users\UserResource;
 use App\Filament\Admin\Resources\Users\Tables\UsersTable;
+use App\Filament\Admin\Resources\Users\UserResource;
 use Filament\Actions\AttachAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DetachAction;
@@ -18,7 +18,6 @@ class UsersRelationManager extends RelationManager
     protected static ?string $relatedResource = UserResource::class;
 
     protected static ?string $recordTitleAttribute = 'name';
-
 
     public function table(Table $table): Table
     {
