@@ -6,6 +6,7 @@ use App\Filament\Admin\Resources\Clients\Pages\CreateClient;
 use App\Filament\Admin\Resources\Clients\Pages\EditClient;
 use App\Filament\Admin\Resources\Clients\Pages\ListClients;
 use App\Filament\Admin\Resources\Clients\Pages\ViewClient;
+use App\Filament\Admin\Resources\Clients\RelationManagers\UsersRelationManager;
 use App\Filament\Admin\Resources\Clients\Schemas\ClientForm;
 use App\Filament\Admin\Resources\Clients\Schemas\ClientInfolist;
 use App\Filament\Admin\Resources\Clients\Tables\ClientsTable;
@@ -59,7 +60,7 @@ class ClientResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) Cache::rememberForever('clients_count', fn () => Client::query()->count());
+        return (string)Cache::rememberForever('clients_count', fn() => Client::query()->count());
     }
 
     public static function form(Schema $schema): Schema
@@ -80,7 +81,7 @@ class ClientResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            UsersRelationManager::class,
         ];
     }
 

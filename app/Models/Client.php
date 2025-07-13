@@ -5,8 +5,8 @@ namespace App\Models;
 use App\Observers\ClientObserver;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-#[ObservedBy(ClientObserver::class)]
 /**
  * @property int $id
  * @property string $name
@@ -14,6 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $phone
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\ClientUser|null $pivot
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $users
+ * @property-read int|null $users_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Client newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Client newQuery()
@@ -27,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @mixin \Eloquent
  */
+#[ObservedBy(ClientObserver::class)]
 class Client extends Model
 {
     protected $fillable = [
@@ -34,4 +38,9 @@ class Client extends Model
         'email',
         'phone',
     ];
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class)->using(ClientUser::class)->withTimestamps();
+    }
 }
