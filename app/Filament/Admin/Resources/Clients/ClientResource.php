@@ -12,7 +12,7 @@ use App\Filament\Admin\Resources\Clients\Schemas\ClientInfolist;
 use App\Filament\Admin\Resources\Clients\Tables\ClientsTable;
 use App\Models\Client;
 use BackedEnum;
-use Filament\Resources\Resource;
+use App\Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -31,11 +31,6 @@ class ClientResource extends Resource
     public static function getGloballySearchableAttributes(): array
     {
         return ['name', 'email'];
-    }
-
-    public static function getGlobalSearchResultUrl($record): string
-    {
-        return self::getUrl('view', ['record' => $record]);
     }
 
     public static function getModelLabel(): string

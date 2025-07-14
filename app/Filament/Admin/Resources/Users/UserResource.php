@@ -10,14 +10,13 @@ use App\Filament\Admin\Resources\Users\RelationManagers\ClientsRelationManager;
 use App\Filament\Admin\Resources\Users\Schemas\UserForm;
 use App\Filament\Admin\Resources\Users\Schemas\UserInfolist;
 use App\Filament\Admin\Resources\Users\Tables\UsersTable;
+use App\Filament\Resources\Resource;
 use App\Models\User;
 use BackedEnum;
-use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Cache;
-
 use function __;
 
 class UserResource extends Resource
@@ -33,11 +32,6 @@ class UserResource extends Resource
     public static function getGloballySearchableAttributes(): array
     {
         return ['name', 'email'];
-    }
-
-    public static function getGlobalSearchResultUrl($record): string
-    {
-        return self::getUrl('view', ['record' => $record]);
     }
 
     public static function getModelLabel(): string
@@ -62,7 +56,7 @@ class UserResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string) Cache::rememberForever('users_count', fn () => User::query()->count());
+        return (string)Cache::rememberForever('users_count', fn() => User::query()->count());
     }
 
     public static function form(Schema $schema): Schema

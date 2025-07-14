@@ -11,7 +11,7 @@ use App\Filament\Admin\Resources\Admins\Schemas\AdminInfolist;
 use App\Filament\Admin\Resources\Admins\Tables\AdminsTable;
 use App\Models\Admin;
 use BackedEnum;
-use Filament\Resources\Resource;
+use App\Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -32,11 +32,6 @@ class AdminResource extends Resource
     public static function getGloballySearchableAttributes(): array
     {
         return ['name', 'email'];
-    }
-
-    public static function getGlobalSearchResultUrl($record): string
-    {
-        return self::getUrl('view', ['record' => $record]);
     }
 
     public static function getModelLabel(): string
