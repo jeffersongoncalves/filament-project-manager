@@ -126,10 +126,6 @@ class AppServiceProvider extends ServiceProvider
                 ->grouped();
         });
 
-        Forms\Components\Placeholder::configureUsing(function (Forms\Components\Placeholder $component) {
-            return $component->columnSpanFull();
-        });
-
         Forms\Components\TextInput::configureUsing(function (Forms\Components\TextInput $component) {
             return $component->minValue(0);
         });
@@ -226,9 +222,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Tables\Columns\TextColumn::configureUsing(function (Tables\Columns\TextColumn $column) {
-            return $column
-                ->limit(50)
-                ->wrap();
+            return $column->wrap();
         });
 
         Tables\Filters\SelectFilter::configureUsing(function (Tables\Filters\SelectFilter $filter) {
