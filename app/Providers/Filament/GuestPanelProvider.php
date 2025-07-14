@@ -28,16 +28,16 @@ class GuestPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Gray,
             ])
-            ->brandLogo(fn () => Vite::asset(config('filakit.favicon.logo')))
+            ->brandLogo(fn() => Vite::asset(config('filakit.favicon.logo')))
             ->brandLogoHeight('50px')
             ->viteTheme('resources/css/filament/guest/theme.css')
             ->defaultThemeMode(config('filakit.theme_mode', ThemeMode::Dark))
-            ->discoverResources(in: app_path('Filament/Guest/Resources'), for: 'App\\Filament\\Guest\\Resources')
-            ->discoverPages(in: app_path('Filament/Guest/Pages'), for: 'App\\Filament\\Guest\\Pages')
+            ->discoverResources(in: app_path('Filament/Panel/Guest/Resources'), for: 'App\\Filament\\Panel\\Guest\\Resources')
+            ->discoverPages(in: app_path('Filament/Panel/Guest/Pages'), for: 'App\\Filament\\Panel\\Guest\\Pages')
+            ->discoverWidgets(in: app_path('Filament/Panel/Guest/Widgets'), for: 'App\\Filament\\Panel\\Guest\\Widgets')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Guest/Widgets'), for: 'App\\Filament\\Guest\\Widgets')
             ->widgets([])
             ->middleware([
                 EncryptCookies::class,

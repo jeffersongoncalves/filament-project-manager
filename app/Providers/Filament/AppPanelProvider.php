@@ -2,7 +2,7 @@
 
 namespace App\Providers\Filament;
 
-use App\Filament\App\Pages\Auth\Login;
+use App\Filament\Panel\App\Pages\Auth\Login;
 use App\Models\Client;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
@@ -38,12 +38,12 @@ class AppPanelProvider extends PanelProvider
             ->brandLogoHeight(fn () => request()->is('admin/login', 'admin/password-reset/*') ? '121px' : '50px')
             ->viteTheme('resources/css/filament/app/theme.css')
             ->defaultThemeMode(config('filakit.theme_mode', ThemeMode::Dark))
-            ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
-            ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
+            ->discoverResources(in: app_path('Filament/Panel/App/Resources'), for: 'App\\Filament\\Panel\\App\\Resources')
+            ->discoverPages(in: app_path('Filament/Panel/App/Pages'), for: 'App\\Filament\\Panel\\App\\Pages')
+            ->discoverWidgets(in: app_path('Filament/Panel/App/Widgets'), for: 'App\\Filament\\Panel\\App\\Widgets')
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
