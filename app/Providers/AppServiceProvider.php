@@ -41,7 +41,6 @@ class AppServiceProvider extends ServiceProvider
         if (config('filakit.favicon.enabled')) {
             FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.favicon'));
         }
-        FilamentView::registerRenderHook(PanelsRenderHook::HEAD_START, fn (): View => view('components.js-md5'));
     }
 
     /**
