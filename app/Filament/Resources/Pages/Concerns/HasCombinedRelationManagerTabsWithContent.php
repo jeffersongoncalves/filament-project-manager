@@ -6,6 +6,6 @@ trait HasCombinedRelationManagerTabsWithContent
 {
     public function hasCombinedRelationManagerTabsWithContent(): bool
     {
-        return true;
+        return count(self::getResource()::getRelations()) > 0;
     }
 }
