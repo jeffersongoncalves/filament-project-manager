@@ -28,7 +28,7 @@ class GuestPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Gray,
             ])
-            ->brandLogo(fn() => Vite::asset(config('filakit.favicon.logo')))
+            ->brandLogo(fn () => Vite::asset(config('filakit.favicon.logo')))
             ->brandLogoHeight('50px')
             ->viteTheme('resources/css/filament/guest/theme.css')
             ->defaultThemeMode(config('filakit.theme_mode', ThemeMode::Dark))
