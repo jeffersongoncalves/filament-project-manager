@@ -7,6 +7,7 @@ use App\Filament\Panel\Admin\Resources\Clients\Pages\CreateClient;
 use App\Filament\Panel\Admin\Resources\Clients\Pages\EditClient;
 use App\Filament\Panel\Admin\Resources\Clients\Pages\ListClients;
 use App\Filament\Panel\Admin\Resources\Clients\Pages\ViewClient;
+use App\Filament\Panel\Admin\Resources\Clients\RelationManagers\ProjectsRelationManager;
 use App\Filament\Panel\Admin\Resources\Clients\RelationManagers\UsersRelationManager;
 use App\Filament\Panel\Admin\Resources\Clients\Schemas\ClientForm;
 use App\Filament\Panel\Admin\Resources\Clients\Schemas\ClientInfolist;
@@ -75,6 +76,7 @@ class ClientResource extends Resource
     {
         return [
             UsersRelationManager::class,
+            ProjectsRelationManager::class,
         ];
     }
 
