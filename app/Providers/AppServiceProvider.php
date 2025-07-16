@@ -165,10 +165,6 @@ class AppServiceProvider extends ServiceProvider
             return $component->moveFiles();
         });
 
-        Forms\Components\RichEditor::configureUsing(function (Forms\Components\RichEditor $component) {
-            return $component->disableToolbarButtons(['blockquote']);
-        });
-
         Forms\Components\Textarea::configureUsing(function (Forms\Components\Textarea $component) {
             return $component->rows(4);
         });
