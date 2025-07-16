@@ -3,12 +3,8 @@
 namespace App\Filament\Panel\Admin\Resources\Clients\RelationManagers;
 
 use App\Filament\Core\Resources\RelationManagers\RelationManager;
-use App\Filament\Panel\Admin\Resources\Projects\Tables\ProjectsTable;
 use App\Filament\Panel\Admin\Resources\Projects\ProjectResource;
-use Filament\Actions\AttachAction;
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DetachAction;
-use Filament\Actions\DetachBulkAction;
+use App\Filament\Panel\Admin\Resources\Projects\Tables\ProjectsTable;
 use Filament\Tables\Table;
 
 class ProjectsRelationManager extends RelationManager

@@ -52,7 +52,7 @@ class ProjectResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return (string)Cache::rememberForever('projects_count', fn() => Project::query()->count());
+        return (string) Cache::rememberForever('projects_count', fn () => Project::query()->count());
     }
 
     public static function form(Schema $schema): Schema
